@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # enable manual release
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Pre-commit
+        uses: open-turo/action-pre-commit@v1
+  release:
+    name: Release
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup tools
+        uses: open-turo/action-setup-tools@v1
+      - name: Release
+        id: release
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Major branch
+        if: steps.release.outputs.new_release_published == 'true'
+        uses: open-turo/action-major-release@v1
+        with:
+          major-version: ${{ steps.release.outputs.new_release_major_version }}

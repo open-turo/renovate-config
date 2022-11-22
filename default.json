@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
+    ":separateMultipleMajorReleases",
+    ":automergeMinor",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
+    ":ignoreUnstable",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":rebaseStalePrs",
+    ":prHourlyLimitNone"
+  ],
+  "reviewersFromCodeOwners": true
+}
