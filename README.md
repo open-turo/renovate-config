@@ -25,7 +25,7 @@ config gets updated with non breaking changes:
 
 ### Presets
 
-Apart from the default present, we also have other presets targetting specific dependency managers / configurations.
+Apart from the default preset, we also have other presets targeting specific dependency managers / configurations.
 To use a preset, just reference it in your renovate config file:
 
 ```json
