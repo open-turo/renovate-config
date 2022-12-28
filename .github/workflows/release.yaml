@@ -28,7 +28,10 @@ jobs:
         uses: open-turo/action-setup-tools@v1
       - name: Release
         id: release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          extra_plugins: |
+            @open-turo/semantic-release-config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Major branch
