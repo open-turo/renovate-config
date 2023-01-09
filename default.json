@@ -11,5 +11,8 @@
     ":rebaseStalePrs",
     ":prHourlyLimitNone"
   ],
+  "pre-commit": {
+    "enabled": true
+  },
   "reviewersFromCodeOwners": true
 }
