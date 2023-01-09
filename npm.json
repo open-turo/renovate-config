@@ -1,3 +1,13 @@
 {
-  "extends": [":npm", ":preserveSemverRanges"]
+  "extends": [":npm", ":preserveSemverRanges"],
+  "packageRules": [
+    {
+      "packageRules": [
+        {
+          "matchDatasources": ["npm"],
+          "rangeStrategy": "update-lockfile"
+        }
+      ]
+    }
+  ]
 }
