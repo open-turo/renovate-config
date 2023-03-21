@@ -1,3 +1,9 @@
 {
-  "extends": [":npm", ":pinOnlyDevDependencies"]
+  "extends": [":npm", ":pinOnlyDevDependencies"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["engines", "peerDependencies"],
+      "semanticCommitType": "fix"
+    }
+  ]
 }
