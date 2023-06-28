@@ -31,7 +31,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3
         with:
           extra_plugins: |
-            @open-turo/semantic-release-config
+            @open-turo/semantic-release-config@^1.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Major branch
