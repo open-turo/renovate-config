@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "group:aws-java-sdkMonorepo",
+    "group:aws-java-sdk-v2Monorepo",
+    "group:springBoot",
+    "group:springCloud",
+    "group:junit5Monorepo",
+    "group:kotlinMonorepo",
+    "group:mockitoMonorepo"
+  ]
+}

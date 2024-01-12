@@ -41,6 +41,7 @@ These are the available presets:
 
 | Preset  | Description                                                                                           |
 | ------- | ----------------------------------------------------------------------------------------------------- |
+| jvm     | Preset for JVM based projects (Java, Kotlin, Scala, Groovy, ...)                                      |
 | npm     | [deprecated favor of the npm-app or npm-lib] Preset for NPM based repositories                        |
 | npm-app | Preset for NPM based applications (all dependencies will be pinned)                                   |
 | npm-lib | Preset for NPM based libraries (browser or node + browser libs) (only devDependencies will be pinned) |
