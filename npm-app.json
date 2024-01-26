@@ -1,3 +1,12 @@
 {
-  "extends": [":npm", ":pinAllExceptPeerDependencies"]
+  "extends": [":npm", ":pinAllExceptPeerDependencies"],
+  "packageRules": [
+    {
+      "automerge": false,
+      "description": "pin prettier-2 to v2 because jest has not supported prettier v3 yet (remove this after jest v30 release)",
+      "enabled": true,
+      "matchPackageNames": ["prettier-2"],
+      "rangeStrategy": "pin"
+    }
+  ]
 }
