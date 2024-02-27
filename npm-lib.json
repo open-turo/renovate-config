@@ -2,6 +2,7 @@
   "extends": [":npm", ":pinOnlyDevDependencies"],
   "packageRules": [
     {
+      "matchDatasources": ["npm"],
       "matchDepTypes": ["engines", "peerDependencies"],
       "semanticCommitType": "fix"
     }
