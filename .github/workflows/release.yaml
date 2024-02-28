@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Pre-commit
-        uses: open-turo/action-pre-commit@v1
+        uses: open-turo/action-pre-commit@v2
   release:
     name: Release
     needs: [lint]
