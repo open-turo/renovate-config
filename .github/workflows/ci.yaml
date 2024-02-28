@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Pre-commit
-        uses: open-turo/action-pre-commit@v1
+        uses: open-turo/action-pre-commit@v2
   test:
     name: Test
     runs-on: ubuntu-latest
