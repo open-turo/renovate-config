@@ -13,5 +13,24 @@
   "pre-commit": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "groupName": "all ci non-major dependencies",
+      "groupSlug": "all-ci-minor-patch",
+      "matchManagers": ["github-actions", "pre-commit", "docker-compose"],
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "groupName": "all non-major language versions",
+      "groupSlug": "all-language-minor-patch",
+      "matchDatasources": [
+        "golang-version",
+        "gradle-version",
+        "java-version",
+        "node-version"
+      ],
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ],
   "reviewersFromCodeOwners": true
 }
