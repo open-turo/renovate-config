@@ -7,9 +7,9 @@
     ":ignoreUnstable",
     ":enableVulnerabilityAlertsWithLabel(security)",
     ":rebaseStalePrs",
+    ":prConcurrentLimitNone",
     ":prHourlyLimitNone"
   ],
-  "prConcurrentLimit": 0,
   "pre-commit": {
     "enabled": true
   },
