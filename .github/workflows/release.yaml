@@ -12,28 +12,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Pre-commit
-        uses: open-turo/action-pre-commit@v2
+        uses: open-turo/action-pre-commit@v3
   release:
     name: Release
     needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup tools
-        uses: open-turo/action-setup-tools@v1
+        uses: open-turo/action-setup-tools@v2
       - name: Release
         id: release
-        uses: cycjimmy/semantic-release-action@v3
+        uses: open-turo/actions-release/semantic-release@v4
         with:
-          extra_plugins: |
-            @open-turo/semantic-release-config@^1.4.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          extra-plugins: |
+            @open-turo/semantic-release-config
       - name: Major branch
         if: steps.release.outputs.new_release_published == 'true'
         uses: open-turo/action-major-release@v1
