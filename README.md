@@ -12,6 +12,9 @@ Extend your renovate config with this preset:
 }
 ```
 
+The default preset using extends some of the renovate built-in presets and also tries to split CI and language non
+major updates into their own groups.
+
 ### Floating tags
 
 We maintain floating tags that point to the latest release for each major version. This will guarantee that your
