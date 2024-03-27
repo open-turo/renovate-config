@@ -10,6 +10,11 @@
       "matchDatasources": ["npm"],
       "matchDepTypes": ["engines", "peerDependencies"],
       "rangeStrategy": "auto"
+    },
+    {
+      "description": "[Remove this after Jest v30 release]Jest v29 or lower do not support prettier v3. This rule ensures that the workaround of adding a prettier-2 package to devDependencies will be pinned to version 2. see https://github.com/jestjs/jest/issues/14305 for detail",
+      "matchPackageNames": ["prettier-2"],
+      "rangeStrategy": "pin"
     }
   ]
 }
