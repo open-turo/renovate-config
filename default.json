@@ -18,7 +18,8 @@
       "groupName": "all ci non-major dependencies",
       "groupSlug": "all-ci-minor-patch",
       "matchManagers": ["github-actions", "pre-commit", "docker-compose"],
-      "matchUpdateTypes": ["minor", "patch"]
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
     },
     {
       "groupName": "all non-major language versions",
