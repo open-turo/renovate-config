@@ -31,6 +31,13 @@
         "node-version"
       ],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "groupName": "Terraform Version Updates",
+      "groupSlug": "terraform-version",
+      "matchManagers": ["regex"],
+      "matchDepNames": ["terraform"],
+      "matchUpdateTypes": ["minor", "patch"]
     }
   ],
   "reviewersFromCodeOwners": true,
