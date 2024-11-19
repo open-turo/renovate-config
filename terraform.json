@@ -1,0 +1,12 @@
+{
+  "packageRules": [
+    {
+      "packageRules": [
+        {
+          "matchDatasources": ["terraform-provider"],
+          "rangeStrategy": "pin"
+        }
+      ]
+    }
+  ]
+}
