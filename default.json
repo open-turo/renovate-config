@@ -31,10 +31,36 @@
         "node-version"
       ],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "enabled": true,
+      "labels": ["security", "dependencies"],
+      "prPriority": 1,
+      "schedule": ["at any time"],
+      "automerge": true,
+      "platformAutomerge": true,
+      "vulnerabilityAlerts": true
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "enabled": true,
+      "labels": ["security", "dependencies"],
+      "prPriority": 1,
+      "vulnerabilityAlerts": true
     }
   ],
   "reviewersFromCodeOwners": true,
   "github-actions": {
     "fileMatch": ["(^|/).github/workflows/.+/.+\\.ya?ml$"]
-  }
+  },
+  "docker": {
+    "enabled": true
+  },
+  "enabledManagers": ["dockerfile", "docker-compose", "github-actions"],
+  "separateMinorPatch": true,
+  "commitMessagePrefix": "fix(security): ",
+  "commitBody": "Fixes vulnerabilities found in container scan:\n{{#if vulnerabilities}}\n{{#each vulnerabilities}}\n- {{severity}} severity: {{title}} ({{packageName}})\n{{/each}}\n{{/if}}"
 }
