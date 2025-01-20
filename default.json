@@ -14,10 +14,15 @@
     "enabled": true
   },
   "vulnerabilityAlerts": {
-    "labels": ["security", "dependencies"],
+    "labels": ["security-critical", "dependencies"],
     "prPriority": 1,
     "automerge": true,
-    "platformAutomerge": true
+    "platformAutomerge": true,
+    "prCreation": "immediate",
+    "stabilityDays": 0,
+    "rangeStrategy": "pin",
+    "commitMessageSuffix": "[SECURITY]",
+    "prBodyTemplate": "Security update to patch vulnerability {{{vulnerabilityUrl}}}\n\nSLA: 3 days\nDeadline: {{{deadline}}}"
   },
   "packageRules": [
     {
@@ -37,10 +42,49 @@
         "node-version"
       ],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["pin", "digest"],
+      "matchDepTypes": ["final"],
+      "enabled": true,
+      "labels": ["security", "dependencies", "base-image"],
+      "prPriority": 2,
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchDepTypes": ["final"],
+      "matchCurrentVersion": "/^\\d+\\.\\d+.\\d+$/",
+      "matchUpdateTypes": ["patch", "minor"],
+      "enabled": true,
+      "labels": ["security", "dependencies", "service-deps"],
+      "prPriority": 1
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FROM (?<depName>.*?):(?<currentValue>.*?)@(?<currentDigest>sha256:[a-f0-9]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    }
+  ],
+  "hostRules": [
+    {
+      "matchHost": "docker.io",
+      "prePriority": 1
     }
   ],
   "reviewersFromCodeOwners": true,
   "github-actions": {
     "fileMatch": ["(^|/).github/workflows/.+/.+\\.ya?ml$"]
+  },
+  "docker": {
+    "enabled": true,
+    "pinDigests": true
   }
 }
