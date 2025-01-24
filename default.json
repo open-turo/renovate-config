@@ -45,16 +45,16 @@
     },
     {
       "matchManagers": ["dockerfile"],
-      "matchUpdateTypes": ["pin", "digest"],
       "matchDepTypes": ["final"],
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["^(debian|ubuntu|alpine|node|python|golang)"],
       "enabled": true,
-      "pinDigests": true,
-      "labels": ["security", "dependencies", "base-image"],
+      "pinDigests": false,
+      "labels": ["dependencies", "base-image"],
       "prPriority": 2,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "extends": ["schedule:weekly"]
     },
     {
       "matchManagers": ["dockerfile"],
@@ -62,18 +62,8 @@
       "matchCurrentVersion": "/^\\d+\\.\\d+.\\d+$/",
       "matchUpdateTypes": ["patch", "minor"],
       "enabled": true,
-      "labels": ["security", "dependencies", "service-deps"],
+      "labels": ["dependencies", "service-deps"],
       "prPriority": 1
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "FROM (?<depName>.*?):(?<currentValue>.*?)@(?<currentDigest>sha256:[a-f0-9]+)"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
     }
   ],
   "hostRules": [
@@ -85,9 +75,5 @@
   "reviewersFromCodeOwners": true,
   "github-actions": {
     "fileMatch": ["(^|/).github/workflows/.+/.+\\.ya?ml$"]
-  },
-  "docker": {
-    "enabled": true,
-    "pinDigests": false
   }
 }
