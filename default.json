@@ -47,7 +47,10 @@
       "matchManagers": ["dockerfile"],
       "matchUpdateTypes": ["pin", "digest"],
       "matchDepTypes": ["final"],
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^(debian|ubuntu|alpine|node|python|golang)"],
       "enabled": true,
+      "pinDigests": true,
       "labels": ["security", "dependencies", "base-image"],
       "prPriority": 2,
       "automerge": true,
@@ -85,6 +88,6 @@
   },
   "docker": {
     "enabled": true,
-    "pinDigests": true
+    "pinDigests": false
   }
 }
