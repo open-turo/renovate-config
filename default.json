@@ -13,6 +13,16 @@
   "pre-commit": {
     "enabled": true
   },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^.pre-commit-config.yaml$"],
+      "matchStrings": [
+        "additional_dependencies:\\s*[-\\s]*['\"]?(?<depName>@?[^'\"\\s]+@(?<currentValue>[^'\"\\s]+))['\"]?",
+        "additional_dependencies:\\s*\\[\\s*['\"]?(?<depName>@?[^'\"\\s]+@(?<currentValue>[^'\"\\s]+))['\"]?\\s*\\]"
+      ]
+    }
+  ],
   "vulnerabilityAlerts": {
     "labels": ["security", "dependencies"],
     "prPriority": 1,
