@@ -19,8 +19,7 @@
       "datasourceTemplate": "npm",
       "fileMatch": ["^.pre-commit-config.yaml$"],
       "matchStrings": [
-        "additional_dependencies:\\s*[-\\s]*['\"]?(?<depName>@?[^'\"\\s]+@(?<currentValue>[^'\"\\s]+))['\"]?",
-        "additional_dependencies:\\s*\\[\\s*['\"]?(?<depName>@?[^'\"\\s]+@(?<currentValue>[^'\"\\s]+))['\"]?\\s*\\]"
+        "additional_dependencies:\\s+-\\s+['\"]?(?<depName>@?[^@]+)(?:@(?<currentValue>[^'\"\\s]*))?"
       ]
     }
   ],
