@@ -25,10 +25,15 @@
     }
   ],
   "vulnerabilityAlerts": {
-    "labels": ["security", "dependencies"],
+    "labels": ["security-critical", "dependencies"],
     "prPriority": 1,
     "automerge": true,
-    "platformAutomerge": true
+    "platformAutomerge": true,
+    "prCreation": "immediate",
+    "stabilityDays": 0,
+    "rangeStrategy": "pin",
+    "commitMessageSuffix": "[SECURITY]",
+    "prBodyTemplate": "Security update to patch vulnerability {{{vulnerabilityUrl}}}\n\nSLA: 3 days\nDeadline: {{{deadline}}}"
   },
   "packageRules": [
     {
@@ -48,6 +53,34 @@
         "node-version"
       ],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchDepTypes": ["final"],
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^(debian|ubuntu|alpine|node|python|golang)"],
+      "enabled": true,
+      "pinDigests": false,
+      "labels": ["dependencies", "base-image"],
+      "prPriority": 2,
+      "automerge": true,
+      "platformAutomerge": true,
+      "extends": ["schedule:weekly"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchDepTypes": ["final"],
+      "matchCurrentVersion": "/^\\d+\\.\\d+.\\d+$/",
+      "matchUpdateTypes": ["patch", "minor"],
+      "enabled": true,
+      "labels": ["dependencies", "service-deps"],
+      "prPriority": 1
+    }
+  ],
+  "hostRules": [
+    {
+      "matchHost": "docker.io",
+      "prePriority": 1
     }
   ],
   "reviewersFromCodeOwners": true,
