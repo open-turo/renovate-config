@@ -15,6 +15,12 @@
       "description": "[Remove this after Jest v30 release]Jest v29 or lower do not support prettier v3. This rule ensures that the workaround of adding a prettier-2 package to devDependencies will be pinned to version 2. see https://github.com/jestjs/jest/issues/14305 for detail",
       "matchPackageNames": ["prettier-2"],
       "rangeStrategy": "pin"
+    },
+    {
+      "description": "Ignore @rive-app updates: Rive code is defined in `npm-lib` repos. We should update versions there, bump peerDependencies, and then update apps accordingly. Opening @rive PRs in npm-app repos just generates useless CI cycles.",
+      "enabled": false,
+      "groupName": "@rive Dependencies",
+      "matchPackageNames": ["/@rive-app//"]
     }
   ]
 }
