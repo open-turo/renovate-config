@@ -3,6 +3,539 @@
     {
       "matchDatasources": ["docker"],
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "Dockerfile base images - automerge patch/minor for security",
+      "matchDatasources": ["docker"],
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["patch", "minor", "digest"],
+      "vulnerabilitySeverity": ["CRITICAL", "HIGH"],
+      "prPriority": 10,
+      "automerge": true,
+      "platformAutomerge": true,
+      "minimumReleaseAge": "0 days",
+      "labels": ["security", "dockerfile", "automerge"],
+      "groupName": "Dockerfile Security Updates",
+      "schedule": ["at any time"]
+    },
+    {
+      "description": "ARG-based version pins in Dockerfiles - kubectl, kustomize, yq, terraform-docs, etc.",
+      "matchManagers": ["dockerfile"],
+      "matchFileNames": ["**/Dockerfile", "**/Dockerfile.*"],
+      "vulnerabilitySeverity": ["CRITICAL", "HIGH"],
+      "prPriority": 9,
+      "labels": ["security", "dockerfile-args"],
+      "groupName": "Dockerfile ARG Security Updates"
+    },
+    {
+      "description": "apt packages in Dockerfiles",
+      "matchManagers": ["dockerfile"],
+      "matchDepTypes": ["final"],
+      "prPriority": 8,
+      "labels": ["security", "apt-packages"]
+    },
+    {
+      "description": "CRITICAL: pillow",
+      "matchPackageNames": ["pillow"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<10.0.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: h11",
+      "matchPackageNames": ["h11"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<0.16.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: pymysql",
+      "matchPackageNames": ["pymysql"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<1.1.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: pyyaml",
+      "matchPackageNames": ["pyyaml"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<5.4",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: numpy",
+      "matchPackageNames": ["numpy"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<1.16.3",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: gevent",
+      "matchPackageNames": ["gevent"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<23.9.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: dask",
+      "matchPackageNames": ["dask"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<2021.10.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "CRITICAL: joblib",
+      "matchPackageNames": ["joblib"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": true,
+      "labels": ["security-critical", "pkg:pip"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<1.2.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: cryptography",
+      "matchPackageNames": ["cryptography"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<39.0.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: setuptools",
+      "matchPackageNames": ["setuptools"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<65.5.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: duckdb",
+      "matchPackageNames": ["duckdb"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<1.1.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: gunicorn",
+      "matchPackageNames": ["gunicorn"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<22.0.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: protobuf",
+      "matchPackageNames": ["protobuf"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<4.25.8",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: langchain-text-splitters",
+      "matchPackageNames": ["langchain-text-splitters"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.3.9",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: snowflake-connector-python",
+      "matchPackageNames": ["snowflake-connector-python"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<3.13.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: redshift-connector",
+      "matchPackageNames": ["redshift-connector"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<2.1.7",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: starlette",
+      "matchPackageNames": ["starlette"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.40.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: orjson",
+      "matchPackageNames": ["orjson"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<3.9.15",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: aiomysql",
+      "matchPackageNames": ["aiomysql"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.3.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: pip",
+      "matchPackageNames": ["pip"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<19.2",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: urllib3",
+      "matchPackageNames": ["urllib3"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<1.26.17",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: fastapi",
+      "matchPackageNames": ["fastapi"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.109.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: sqlparse",
+      "matchPackageNames": ["sqlparse"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.5.0",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: virtualenv",
+      "matchPackageNames": ["virtualenv"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<20.26.6",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: pycryptodome",
+      "matchPackageNames": ["pycryptodome"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<3.19.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: authlib",
+      "matchPackageNames": ["authlib"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<1.6.4",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: wheel",
+      "matchPackageNames": ["wheel"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.38.1",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: werkzeug",
+      "matchPackageNames": ["werkzeug"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<0.15.3",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Go CLI tools - automerge minor/patch",
+      "matchPackageNames": [
+        "terraform-docs/terraform-docs",
+        "mikefarah/yq",
+        "mvdan/sh",
+        "docker/compose",
+        "kubernetes-sigs/kustomize"
+      ],
+      "matchManagers": ["regex"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "prPriority": 7,
+      "labels": ["dependencies", "go-tools", "automerge"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "kubectl - cluster compatibility required",
+      "matchPackageNames": ["kubernetes/kubernetes"],
+      "matchManagers": ["regex"],
+      "allowedVersions": ">=1.32.0 <1.35.0",
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "7 days",
+      "automerge": false,
+      "prPriority": 9,
+      "labels": ["dependencies", "kubectl", "cluster-compatibility"],
+      "prBodyNotes": [
+        "⚠️ **Cluster Compatibility Check Required**",
+        "",
+        "kubectl must be within ±1 minor version of Kubernetes cluster.",
+        "Current cluster: `v1.33.5-eks-113cf36`",
+        "Valid range: `1.32.x - 1.34.x`",
+        "",
+        "Verify cluster version before merging: `kubectl version`"
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "GitHub CLI",
+      "matchPackageNames": ["cli/cli"],
+      "matchManagers": ["regex"],
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "7 days",
+      "automerge": false,
+      "prPriority": 6,
+      "labels": ["dependencies", "github-cli"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "golangci-lint - breaking change risk",
+      "matchPackageNames": ["golangci/golangci-lint"],
+      "matchManagers": ["regex"],
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "14 days",
+      "automerge": false,
+      "prPriority": 5,
+      "labels": ["dependencies", "breaking-change-risk"],
+      "prBodyNotes": [
+        "⚠️ **Breaking Change Risk**",
+        "",
+        "Large version jumps may introduce new linting rules.",
+        "Test in non-prod first. Teams can disable rules in `.golangci.yml`."
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "pre-commit - updates binary only, not cache",
+      "matchPackageNames": ["pre-commit"],
+      "matchManagers": ["regex", "pip_requirements"],
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "7 days",
+      "automerge": false,
+      "prPriority": 6,
+      "labels": ["dependencies", "pre-commit"],
+      "prBodyNotes": [
+        "📝 **Note:** This updates the pre-commit binary only.",
+        "",
+        "Cached hook dependencies are not updated automatically.",
+        "To update cache, add: `RUN pre-commit clean` before `pre-commit install-hooks`"
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "Python system package security upgrades (installed via pip after apt)",
+      "matchPackageNames": [
+        "cryptography",
+        "setuptools",
+        "pyyaml",
+        "pip",
+        "wheel",
+        "oauthlib"
+      ],
+      "matchManagers": ["regex", "pip_requirements"],
+      "matchFiles": ["**/Dockerfile", "**/Dockerfile.*"],
+      "groupName": "Python System Security Packages",
+      "schedule": ["before 3am on Monday"],
+      "minimumReleaseAge": "7 days",
+      "automerge": false,
+      "prPriority": 8,
+      "labels": ["security", "python-system", "dockerfile"],
+      "semanticCommitType": "fix"
+    }
+  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Docker image updates and container security patches (pip packages from Wiz analysis + Go binary tools)",
+  "customManagers": [
+    {
+      "description": "terraform-docs version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG TERRAFORM_DOCS_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "terraform-docs/terraform-docs",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    },
+    {
+      "description": "yq version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": ["ARG YQ_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "mikefarah/yq"
+    },
+    {
+      "description": "kubectl version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG KUBECTL_VERSION=(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes/kubernetes",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    },
+    {
+      "description": "docker-compose version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG DOCKER_COMPOSE_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "docker/compose"
+    },
+    {
+      "description": "GitHub CLI version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": ["ARG GH_VERSION=(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "cli/cli"
+    },
+    {
+      "description": "golangci-lint version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG GOLANGCI_LINT_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golangci/golangci-lint"
+    },
+    {
+      "description": "shfmt version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG SHFMT_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "mvdan/sh"
+    },
+    {
+      "description": "kustomize version",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "ARG KUSTOMIZE_VERSION=(?<currentValue>v?\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes-sigs/kustomize"
+    },
+    {
+      "description": "Detect pip install versions in Dockerfiles",
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "pip install.*?(?<depName>[a-zA-Z0-9_-]+)>=(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "pypi"
     }
   ]
 }
