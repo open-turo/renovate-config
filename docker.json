@@ -339,7 +339,29 @@
       "automerge": false,
       "labels": ["security-high", "pkg:pip"],
       "prPriority": 5,
-      "matchCurrentVersion": "<0.15.3",
+      "matchCurrentVersion": "<0.15.3 || >=3.0.0 <3.0.3",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: cbor2",
+      "matchPackageNames": ["cbor2"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 5,
+      "matchCurrentVersion": "<5.6.2",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "MEDIUM: python-jose",
+      "matchPackageNames": ["python-jose"],
+      "matchManagers": ["pip_requirements", "regex"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-medium", "pkg:pip"],
+      "prPriority": 3,
+      "matchCurrentVersion": "<3.4.0",
       "semanticCommitType": "fix"
     },
     {
