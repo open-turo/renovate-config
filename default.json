@@ -42,5 +42,15 @@
   "reviewersFromCodeOwners": true,
   "github-actions": {
     "fileMatch": ["(^|/).github/workflows/.+/.+\\.ya?ml$"]
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile($|\\..+)"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s(?:ENV|ARG) .+?_VERSION=\"?(?<currentValue>[^\"\\s]+)\"?\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{/if}}"
+    }
+  ]
 }
