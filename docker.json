@@ -71,15 +71,17 @@
       "semanticCommitType": "fix"
     },
     {
-      "description": "CRITICAL: pyyaml",
+      "description": "CRITICAL: pyyaml - CVE-2020-1747, CVE-2020-14343",
       "matchPackageNames": ["pyyaml"],
-      "matchManagers": ["pip_requirements", "regex"],
-      "matchFiles": ["**/Dockerfile", "**/Dockerfile.*"],
+      "matchManagers": ["pip_requirements", "pip_setup", "regex"],
+      "vulnerabilitySeverity": ["CRITICAL", "HIGH"],
       "enabled": true,
       "automerge": true,
+      "platformAutomerge": true,
       "labels": ["security-critical", "pkg:pip"],
       "prPriority": 10,
       "matchCurrentVersion": "<5.4",
+      "minimumReleaseAge": "0 days",
       "semanticCommitType": "fix"
     },
     {
@@ -492,6 +494,32 @@
       "automerge": false,
       "prPriority": 8,
       "labels": ["security", "python-system", "dockerfile"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: urllib3 - CVE-2025-66418, CVE-2025-66471, CVE-2026-21441",
+      "matchPackageNames": ["urllib3"],
+      "matchManagers": ["pip_requirements", "pip_setup"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.6.3",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: setuptools - CVE-2024-6345, CVE-2025-47273",
+      "matchPackageNames": ["setuptools"],
+      "matchManagers": ["pip_requirements", "pip_setup"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:pip"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<78.1.1",
+      "minimumReleaseAge": "3 days",
       "semanticCommitType": "fix"
     }
   ],

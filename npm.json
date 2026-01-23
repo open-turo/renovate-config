@@ -8,6 +8,98 @@
           "rangeStrategy": "update-lockfile"
         }
       ]
+    },
+    {
+      "description": "CRITICAL: form-data - CVE-2025-7783",
+      "matchPackageNames": ["form-data"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["CRITICAL"],
+      "enabled": true,
+      "automerge": true,
+      "platformAutomerge": true,
+      "labels": ["security-critical", "pkg:npm"],
+      "prPriority": 10,
+      "matchCurrentVersion": "<2.5.4",
+      "minimumReleaseAge": "0 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: axios - CVE-2025-58754, CVE-2025-27152",
+      "matchPackageNames": ["axios"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<1.12.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: glob - CVE-2025-64756",
+      "matchPackageNames": ["glob"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<10.5.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: tar - CVE-2026-23745, CVE-2026-23950",
+      "matchPackageNames": ["tar"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<7.5.4",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: tar-fs - CVE-2024-12905, CVE-2025-48387, CVE-2025-59343",
+      "matchPackageNames": ["tar-fs"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.1.4",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: qs - CVE-2025-15284",
+      "matchPackageNames": ["qs"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<6.14.1",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: @remix-run/router - CVE-2026-22029",
+      "matchPackageNames": ["@remix-run/router"],
+      "matchManagers": ["npm"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:npm"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<1.23.2",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]

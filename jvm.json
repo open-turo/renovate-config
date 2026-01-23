@@ -7,5 +7,168 @@
     "group:junit5Monorepo",
     "group:kotlinMonorepo",
     "group:mockitoMonorepo"
+  ],
+  "packageRules": [
+    {
+      "description": "HIGH: jackson-core - CVE-2025-52999",
+      "matchPackageNames": ["com.fasterxml.jackson.core:jackson-core"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.15.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: jackson-databind - CVE-2021-46877, CVE-2022-42003, CVE-2022-42004",
+      "matchPackageNames": ["com.fasterxml.jackson.core:jackson-databind"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.12.7.1",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: logback - CVE-2023-6378",
+      "matchPackageNames": [
+        "ch.qos.logback:logback-classic",
+        "ch.qos.logback:logback-core"
+      ],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<1.2.13",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: netty - CVE-2025-55163, CVE-2025-24970",
+      "matchPackageNames": [
+        "io.netty:netty-codec-http2",
+        "io.netty:netty-handler"
+      ],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<4.1.124.Final",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: jetty - CVE-2023-44487, CVE-2024-22201, CVE-2025-5115, CVE-2024-13009",
+      "matchPackageNames": [
+        "org.eclipse.jetty:jetty-server",
+        "org.eclipse.jetty.http2:http2-common",
+        "org.eclipse.jetty.http2:http2-hpack",
+        "org.eclipse.jetty.http2:http2-server"
+      ],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<9.4.58",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: spring - Multiple CVEs",
+      "matchPackageNames": [
+        "org.springframework:spring-beans",
+        "org.springframework:spring-web",
+        "org.springframework:spring-webmvc",
+        "org.springframework:spring-expression",
+        "org.springframework.security:spring-security-core",
+        "org.springframework.boot:spring-boot",
+        "org.springframework.boot:spring-boot-autoconfigure"
+      ],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: tomcat - Multiple CVEs",
+      "matchPackageNames": ["org.apache.tomcat.embed:tomcat-embed-core"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<9.0.109",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: gson - CVE-2022-25647",
+      "matchPackageNames": ["com.google.code.gson:gson"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.8.9",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: commons-io - CVE-2024-47554",
+      "matchPackageNames": ["commons-io:commons-io"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<2.14.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: commons-beanutils - CVE-2025-48734",
+      "matchPackageNames": ["commons-beanutils:commons-beanutils"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<1.11.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    },
+    {
+      "description": "HIGH: grpc - CVE-2025-55163",
+      "matchPackageNames": ["io.grpc:grpc-netty-shaded"],
+      "matchManagers": ["maven", "gradle"],
+      "vulnerabilitySeverity": ["HIGH"],
+      "enabled": true,
+      "automerge": false,
+      "labels": ["security-high", "pkg:maven"],
+      "prPriority": 8,
+      "matchCurrentVersion": "<1.75.0",
+      "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix"
+    }
   ]
 }
