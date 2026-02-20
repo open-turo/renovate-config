@@ -10,6 +10,7 @@
     ":prConcurrentLimitNone",
     ":prHourlyLimitNone"
   ],
+  "semanticCommits": "enabled",
   "pre-commit": {
     "enabled": true
   },
