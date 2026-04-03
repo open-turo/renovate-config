@@ -44,14 +44,31 @@
   "github-actions": {
     "fileMatch": ["(^|/).github/workflows/.+/.+\\.ya?ml$"]
   },
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["(^|/)Dockerfile($|\\..+)"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s(?:ENV|ARG) .+?_VERSION=\"?(?<currentValue>[^\"\\s]+)\"?\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["action\\.ya?ml$", "(^|/)\\.github/.+\\.ya?ml$"],
+      "matchStrings": [
+        "node-version:\\s*[\"']?(?<currentValue>\\d+[\\d.]*)[\"']?",
+        "echo \"version=(?<currentValue>\\d+)\" >> \\$GITHUB_OUTPUT"
+      ],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["action\\.ya?ml$", "(^|/)\\.github/.+\\.ya?ml$"],
+      "matchStrings": ["\"(?<depName>@?[^@\"]+)@(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "npm"
     }
   ]
 }
