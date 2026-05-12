@@ -8,6 +8,10 @@
           "rangeStrategy": "update-lockfile"
         }
       ]
+    },
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]
