@@ -38,6 +38,10 @@
         "node-version"
       ],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
     }
   ],
   "reviewersFromCodeOwners": true,
