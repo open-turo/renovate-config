@@ -42,6 +42,21 @@
     {
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Add specific labels for major dependency updates",
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["dependency-major"]
+    },
+    {
+      "description": "Add specific labels for minor dependency updates",
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["dependency-minor"]
+    },
+    {
+      "description": "Add specific labels for patch dependency updates",
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["dependency-patch"]
     }
   ],
   "reviewersFromCodeOwners": true,
