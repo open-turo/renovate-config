@@ -15,8 +15,23 @@
     },
     {
       "description": "Bypass age gate for internally maintained @turo packages",
-      "matchPackagePatterns": ["^@turo/"],
+      "matchPackageNames": ["/^@turo//"],
       "minimumReleaseAge": null
+    },
+    {
+      "description": "Bypass age gate for specific trusted packages — add package names here for 0-day exceptions",
+      "matchPackageNames": [],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Reduce age gate to 2 days for eslint packages",
+      "matchPackageNames": ["/^eslint/", "/^@eslint//"],
+      "minimumReleaseAge": "2 days"
+    },
+    {
+      "description": "Reduce age gate to 1 day for @types packages",
+      "matchPackageNames": ["/^@types//"],
+      "minimumReleaseAge": "1 day"
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]
