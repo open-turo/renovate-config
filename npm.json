@@ -30,7 +30,9 @@
         "/^eslint/",
         "/^@eslint//",
         "/^prettier/",
-        "/^@prettier//"
+        "/^@prettier//",
+        "/^@typescript-eslint//",
+        "typescript-eslint"
       ],
       "minimumReleaseAge": "2 days"
     }
