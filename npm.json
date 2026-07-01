@@ -20,7 +20,7 @@
     },
     {
       "description": "Bypass age gate for specific trusted packages — add package names here for 0-day exceptions",
-      "matchPackageNames": [],
+      "matchPackageNames": ["/^@types//"],
       "minimumReleaseAge": null
     },
     {
@@ -29,8 +29,8 @@
       "minimumReleaseAge": "2 days"
     },
     {
-      "description": "Reduce age gate to 1 day for @types packages",
-      "matchPackageNames": ["/^@types//"],
+      "description": "Reduce age gate to 1 day for specific packages — add package names here for 1-day exceptions",
+      "matchPackageNames": [],
       "minimumReleaseAge": "1 day"
     }
   ],
