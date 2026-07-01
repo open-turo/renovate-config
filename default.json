@@ -56,7 +56,12 @@
     },
     {
       "description": "Reduce age gate from 3 days to 2 days for specific packages, where we want to update somewhat more frequently, and do not expect security risk.",
-      "matchPackageNames": ["/^eslint/", "/^@eslint//"],
+      "matchPackageNames": [
+        "/^eslint/",
+        "/^@eslint//",
+        "/^prettier/",
+        "/^@prettier//"
+      ],
       "minimumReleaseAge": "2 days"
     },
     {
