@@ -12,6 +12,11 @@
     {
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Bypass age gate for internally maintained @turo packages",
+      "matchPackagePatterns": ["^@turo/"],
+      "minimumReleaseAge": null
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]
