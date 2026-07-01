@@ -16,7 +16,7 @@
     },
     {
       "description": "Remove minimum release age for internal @turo namespaced packages, and other trusted and/or safe exceptions.",
-      "matchPackageNames": ["/^@turo//", "/^@types//"],
+      "matchPackageNames": ["/^@turo//", "/^@open-turo//", "/^@types//"],
       "minimumReleaseAge": null
     },
     {
