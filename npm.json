@@ -10,23 +10,24 @@
       ]
     },
     {
+      "description": "Apply a 3-day minimum release age to NPM dependencies by default, for security purposes.",
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "3 days"
     },
     {
-      "description": "No minimum release age for internal and trusted packages",
+      "description": "Remove minimum release age for internal @turo namespaced packages, and other trusted and/or safe exceptions.",
       "matchPackageNames": ["/^@turo//", "/^@types//"],
       "minimumReleaseAge": null
     },
     {
-      "description": "Reduce age gate to 2 days for specific packages",
-      "matchPackageNames": ["/^eslint/", "/^@eslint//"],
-      "minimumReleaseAge": "2 days"
+      "description": "Reduce age gate to 3 days to 1 day day for specific packages, where we want to update much more frequently, and especially do not expect security risk.",
+      "matchPackageNames": ["react", "react-dom"],
+      "minimumReleaseAge": "1 day"
     },
     {
-      "description": "Reduce age gate to 1 day for specific packages — add package names here for 1-day exceptions",
-      "matchPackageNames": [],
-      "minimumReleaseAge": "1 day"
+      "description": "Reduce age gate from 3 days to 2 days for specific packages, where we want to update somewhat more frequently, and do not expect security risk.",
+      "matchPackageNames": ["/^eslint/", "/^@eslint//"],
+      "minimumReleaseAge": "2 days"
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]
