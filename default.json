@@ -49,7 +49,7 @@
       "minimumReleaseAge": null
     },
     {
-      "description": "Reduce age gate to 2 days for eslint packages",
+      "description": "Reduce age gate to 2 days for specific packages",
       "matchPackageNames": ["/^eslint/", "/^@eslint//"],
       "minimumReleaseAge": "2 days"
     },
