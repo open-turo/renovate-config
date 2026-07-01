@@ -44,13 +44,8 @@
       "minimumReleaseAge": "3 days"
     },
     {
-      "description": "Bypass age gate for internally maintained @turo packages",
-      "matchPackageNames": ["/^@turo//"],
-      "minimumReleaseAge": null
-    },
-    {
-      "description": "Bypass age gate for specific trusted packages — add package names here for 0-day exceptions",
-      "matchPackageNames": ["/^@types//"],
+      "description": "No minimum release age for internal and trusted packages",
+      "matchPackageNames": ["/^@turo//", "/^@types//"],
       "minimumReleaseAge": null
     },
     {
