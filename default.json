@@ -44,6 +44,11 @@
       "minimumReleaseAge": "3 days"
     },
     {
+      "description": "Bypass age gate for internally maintained @turo packages",
+      "matchPackagePatterns": ["^@turo/"],
+      "minimumReleaseAge": null
+    },
+    {
       "description": "Add specific labels for major dependency updates",
       "matchUpdateTypes": ["major"],
       "addLabels": ["dependency-major"]
