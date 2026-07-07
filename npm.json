@@ -35,6 +35,11 @@
         "typescript-eslint"
       ],
       "minimumReleaseAge": "2 days"
+    },
+    {
+      "description": "@emotion/jest@11.13.0 creates a memory leak in our test suite: https://github.com/emotion-js/emotion/issues/3221",
+      "matchPackageNames": ["@emotion/jest"],
+      "allowedVersions": "!/11.13.0/"
     }
   ],
   "postUpdateOptions": ["yarnDedupeHighest", "npmDedupe", "pnpmDedupe"]
