@@ -109,7 +109,9 @@
     {
       "customType": "regex",
       "fileMatch": ["action\\.ya?ml$", "(^|/)\\.github/.+\\.ya?ml$"],
-      "matchStrings": ["\"(?<depName>@?[^@\"]+)@(?<currentValue>[^\"]+)\""],
+      "matchStrings": [
+        "\"(?<depName>@[^@\"]+/[^@\"]+|[^@\"/]+)@(?<currentValue>[^\"]+)\""
+      ],
       "datasourceTemplate": "npm"
     }
   ]
