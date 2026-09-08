@@ -22,6 +22,11 @@
   },
   "packageRules": [
     {
+      "description": "Never propose PR-snapshot prereleases such as 4.1.0-pr-179.59.1.1. Renovate's maven versioning only treats a known qualifier (alpha, beta, milestone, rc, snapshot, ...) as unstable, so an unrecognised `pr` qualifier is classified as stable and :ignoreUnstable does not filter these builds.",
+      "matchDatasources": ["maven"],
+      "allowedVersions": "!/-pr-\\d+/"
+    },
+    {
       "groupName": "all ci non-major dependencies",
       "groupSlug": "all-ci-minor-patch",
       "matchManagers": ["github-actions", "pre-commit", "docker-compose"],
